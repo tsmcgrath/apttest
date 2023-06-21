@@ -16,7 +16,7 @@ defaultMapOpts = {
 const trail = [
    {
       id: 'lowRes'
-      ,url: './data/vector/APTlow_2023v1.3.fgb'
+      ,url: './data/vector/APT2023v1.5_review.fgb'
       ,minZoom: 1
       ,maxZoom: 13
       ,loadingId: 'loading'
@@ -26,26 +26,14 @@ const trail = [
       /* Using the callback function */
    ,featureFn:  function (layer, feature, opts) {
       switch(feature.properties.status) {
-          case 'Partner':
-             opts.style.color = '#800080';
-             opts.style.opacity = 0.7;
-             opts.style.weight = 2;
-             opts.style.dashArray = '';
-             break;
-          case 'Proposed':
-             opts.style.color = '#800080';
-             opts.style.opacity = 1.0;
-             opts.style.weight = 3;
-             opts.style.dashArray = '2, 5';
-             break;
-          case 'PGC':
-             opts.style.color = '#FFA500';
-             opts.style.opacity = 1.0;
-             opts.style.weight = 3;
-             opts.style.dashArray = '2, 5';
-             break;
-          default:
-             opts.style.color = '#FF00FF';
+         case 'TRUE':
+            opts.style.color = '#acf871';
+            opts.style.opacity = 1;
+            opts.style.weight = 3;
+            opts.style.dashArray = '';
+            break;
+         default:
+            opts.style.color = '#FF3131';
       }
       var f = L.geoJSON(feature, { style: opts.style });
          // below is the only new line. Use feature.properties.label to get the label
@@ -55,7 +43,7 @@ const trail = [
    }
    ,{
       id: 'highRes'
-      ,url: './data/vector/APThigh_2023v1.3.fgb'
+      ,url: './data/vector/APT2023v1.5_review.fgb'
       ,minZoom: 14
       ,maxZoom: 20
       ,loadingId: 'loading'
@@ -66,25 +54,15 @@ const trail = [
       ,style: { color: '#51215a', weight: 4, zIndex: 3000 }
        /* Using the callback function */
    ,featureFn:  function (layer, feature, opts) {
-      switch(feature.properties.status) {
-          case 'Partner':
-             opts.style.color = '#800080';
-             opts.style.opacity = 0.7;
-             opts.style.weight = 2;
+      switch(feature.properties.Primary) {
+          case 'TRUE':
+             opts.style.color = '#acf871';
+             opts.style.opacity = 1;
+             opts.style.weight = 3;
              opts.style.dashArray = '';
              break;
-          case 'Proposed':
-             opts.style.color = '#800080';
-             opts.style.weight = 3;
-             opts.style.dashArray = '1, 10';
-             break;
-          case 'PGC':
-             opts.style.color = '#FFA500';
-             opts.style.weight = 3;
-             opts.style.dashArray = '1, 10';
-             break;
           default:
-             opts.style.color = '#FF00FF';
+             opts.style.color = '#FF3131';
       }
       var f = L.geoJSON(feature, { style: opts.style });
          // below is the only new line. Use feature.properties.label to get the label
