@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+   <!-- Update lines to force a rebuild of Jekyll -->
+<head>
+   <title>American Perimeter Trail Interactive Map</title>
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" crossorigin="">
+   <link rel="stylesheet" type="text/css" href="./css/site.css" crossorigin="">
+   <link rel="stylesheet" type="text/css" href="./css/map.css" crossorigin="">
+   <link rel="stylesheet" type="text/css" href="./css/jsLegend.css" crossorigin="">
+   <link rel="shortcut icon" type="image/x-icon" href="https://americanperimetertrail-development.mystagingwebsite.com/wp-content/uploads/2021/08/cropped-apt-siteicon-180x180.png" />
+   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" crossorigin=""></script>
+   <script src="./js/underscore-min.js" crossorigin=""></script>
+   <script src="./js/flatgeobuf-geojson.min.js" crossorigin=""></script>
+   <!--script src="./js/json-formatter-js" crossorigin=""></script-->
+   <script src="./js/leaflet.textpath.js" crossorigin=""></script>
+   <script src="./js/proj4.js" crossorigin=""></script>
+   <script src="./js/georaster.js" crossorigin="" defer></script>
+   <script src="./js/georaster-layer-for-leaflet.js" crossorigin="" defer></script>
+   <script src="./js/jsLegend.js" crossorigin="" defer></script>
+   <script src="./js/class.js" crossorigin="" defer></script>
+   <script src="./js/map.js" crossorigin="" defer></script>
+   <script src="./js/config.js" crossorigin="" defer></script>
+</head>
+<body onload="initMap()" style="font-family: arial;">
+<div id="groups" onclick="util.toggleDiv('groups')">
+   <span class="boldFont">Layers:</span><br> 
+</div>
+
+<div id="map" style="background: white;">
+   <div id="layers" onclick="util.toggleDiv('groups')">
+      <img alt="layers icon" src="./images/basemap.png" style="max-width: 50px;">
+   </div>
+   <div id="loading">Loading...</div>
+</div>
+<div id="info">
+   
+   <button type="button" class="collapsible">Legend & Position</button>
+   <div class="content">
+      <img alt="legend icon" src="./images/APTLegend1.png" width="65%" height="65%">
+      <br>
+      <strong>Decimal Degrees:</strong><br>
+      <span id="latlon">-&nbsp;&nbsp;-</span><br>
+      <span id="bounds"></span>
+   </div>
+   <div id="legend"></div>
+
+   <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+      </script>
+</div>
+
+</body>
+</html>
+
