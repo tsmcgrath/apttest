@@ -25,7 +25,7 @@ const trail = [
       ,update: 1
       /* Using the callback function */
    ,featureFn:  function (layer, feature, opts) {
-      switch(feature.properties.status) {
+      switch(feature.properties.Primary) {
          case 'TRUE':
             opts.style.color = '#acf871';
             opts.style.opacity = 1;
