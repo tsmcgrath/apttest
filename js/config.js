@@ -26,7 +26,7 @@ const trail = [
       /* Using the callback function */
    ,featureFn:  function (layer, feature, opts) {
       switch(feature.properties.Primary) {
-         case 'TRUE':
+         case true:
             opts.style.color = '#acf871';
             opts.style.opacity = 1;
             opts.style.weight = 3;
@@ -55,7 +55,7 @@ const trail = [
        /* Using the callback function */
    ,featureFn:  function (layer, feature, opts) {
       switch(feature.properties.Primary) {
-          case 'TRUE':
+          case true:
              opts.style.color = '#acf871';
              opts.style.opacity = 1;
              opts.style.weight = 3;
