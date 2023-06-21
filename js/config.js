@@ -64,12 +64,6 @@ const trail = [
           default:
              opts.style.color = '#FF3131';
       }
-      // Use the callback function to set a tooltip
-      ,featureFn:  function (layer, feature, opts) {
-         .bindTooltip(`<h3>${feature.properties["label"]}</h3>`)
-                // .bindPopup('Click for details: ' + '<a href="../PDF/LowerComancheExample.html">Report</a>')
-                .addTo(map);
-      }
       var f = L.geoJSON(feature, { style: opts.style });
          // below is the only new line. Use feature.properties.label to get the label
          // layer.setText(feature.properties.label);
