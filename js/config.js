@@ -16,7 +16,7 @@ defaultMapOpts = {
 const trail = [
    {
       id: 'lowRes'
-      ,url: './data/vector/APT2023v1.5_review.fgb'
+      ,url: './data/vector/APT2023v1.5.fgb'
       ,minZoom: 1
       ,maxZoom: 13
       ,loadingId: 'loading'
@@ -43,7 +43,7 @@ const trail = [
    }
    ,{
       id: 'highRes'
-      ,url: './data/vector/APT2023v1.5_review.fgb'
+      ,url: './data/vector/APT2023v1.5.fgb'
       ,minZoom: 14
       ,maxZoom: 20
       ,loadingId: 'loading'
